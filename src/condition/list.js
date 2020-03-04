@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Person from './Person'
-export class list extends Component {
+export class List extends Component {
   constructor(props) {
       super(props)
   
@@ -14,10 +14,10 @@ export class list extends Component {
   }
   
     render() {
-
+const {liste}= this.state.person
         return (
             <div>
-                {this.state.person.map( persons=>{
+                {liste.map( persons=>{
                     return <Person names={persons.name} ages={persons.age} />
                 })}
             </div>
@@ -25,4 +25,4 @@ export class list extends Component {
     }
 }
 
-export default list
+export default List
