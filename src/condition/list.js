@@ -1,28 +1,38 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Person from './Person'
-export class List extends Component {
-  constructor(props) {
-      super(props)
-  
-      this.state = {
-           person:[
-               {name:"mage",age :24},
-               {name:"girish",age:25},
-               {name:"chara",age:28}
-           ]
-      }
+const List =(props)=>{
+ const [personstate,sepersonstate]= useState({
+      Person :[
+          {name:"mage",age:24},
+          {name:"dhoni",age:45},
+          {name:"vijay",age:47}
+      ],
+      otherstate :"some other values"
   }
-  
-    render() {
-const {liste}= this.state.person
+  )
+console.log(personstate)
+
+const   nameChangeHandler =()=>{
+    sepersonstate({
+          Person :[
+              {name:"magendiran",age:25},
+              {name:"CSKdhoni",age:46},
+              {name:"Thalapathi Vijay",age:48}
+
+          ]
+      })
+  }
         return (
             <div>
-                {liste.map( persons=>{
-                    return <Person names={persons.name} ages={persons.age} />
-                })}
+                <button onClick={nameChangeHandler}>State change </button>
+<Person name={personstate.Person[0].name} age={personstate.Person[0].age}/>
+<Person  name={personstate.Person[1].name} age={personstate.Person[1].age}/>
+<Person  name={personstate.Person[2].name} age={personstate.Person[2].age}/>
+{/* <Person/> */}
+
             </div>
         )
     }
-}
+
 
 export default List
